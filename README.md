@@ -76,8 +76,9 @@ Your statements never leave your own AI session. There's no account to create he
 **Chantal Perrinjaquet** — SoulStrategy / House Of Coaching.
 A gift, shared freely. If it helped you, keep the credit and pass it on.
 
-- ✍️ Substack: _[your Substack link]_
-- 🧭 Work with me: _[your House Of Coaching / offer link]_
+- ✍️ More on AI & SoulStrategy on my [Substack](https://open.substack.com/pub/deineuniquesoulmission/p/how-to-turn-your-ai-into-your-personalized?r=4t0rtw&utm_campaign=post&utm_medium=web)
+- 🌱 Join my free community: [SoulCalling Portal](https://www.skool.com/soulcalling-portal-1290/about)
+- 💬 Ready for your next chapter? [Let's talk on WhatsApp](https://bit.ly/My-SoulMission) — just write **KINGDOM** in your message.
 
 ---
 

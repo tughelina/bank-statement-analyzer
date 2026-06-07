@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Statement Analyzer · Financial Clarity with AI — by Chantal Perrinjaquet</title>
+<meta name="description" content="Turn a whole year of bank statements into one clean Excel overview — with AI. A free gift by Chantal Perrinjaquet, SoulStrategy / House Of Coaching.">
+<style>
+  :root{
+    --teal:#1F4E5F; --teal-deep:#143742; --gold:#C9A24B; --bg:#fbf9f5; --card:#ffffff;
+    --ink:#23302f; --muted:#6c7a7d; --line:#e7e1d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  a{color:var(--teal)}
+  /* Hero */
+  header{background:linear-gradient(160deg,var(--teal-deep),var(--teal));color:#fff;padding:74px 0 64px;text-align:center}
+  header .badge{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,162,75,.5);border-radius:40px;padding:6px 16px;margin-bottom:22px}
+  header h1{font-size:42px;line-height:1.12;font-weight:800;margin-bottom:16px;letter-spacing:-.5px}
+  header p.lead{font-size:19px;max-width:640px;margin:0 auto 30px;color:#e8f0f1}
+  .btn{display:inline-block;font-weight:700;text-decoration:none;border-radius:40px;padding:14px 30px;transition:.15s;font-size:16px}
+  .btn-gold{background:var(--gold);color:#2a230f}
+  .btn-gold:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff;margin-left:10px}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  /* Sections */
+  section{padding:56px 0}
+  h2{font-size:28px;color:var(--teal);margin-bottom:8px;letter-spacing:-.3px}
+  .sub{color:var(--muted);margin-bottom:30px;font-size:17px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .card .emoji{font-size:22px;display:block;margin-bottom:6px}
+  .card h3{font-size:16px;margin-bottom:4px;color:var(--teal-deep)}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .quote{border-left:3px solid var(--gold);background:#fff;padding:18px 22px;border-radius:0 12px 12px 0;font-size:18px;font-style:italic;color:var(--teal-deep);margin-top:26px}
+  /* Tabs list */
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tab{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 16px}
+  .tab b{color:var(--teal-deep)} .tab span{font-size:14px;color:var(--muted)}
+  .num{flex:0 0 26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  /* Ways */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .way{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+  .way .pill{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:30px;padding:3px 11px}
+  .way.alt .pill{background:var(--gold);color:#2a230f}
+  .way h3{margin:14px 0 8px;color:var(--teal-deep);font-size:19px}
+  .way p{font-size:15px;color:var(--muted);margin-bottom:8px}
+  /* Prompt box */
+  .promptwrap{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .promptbar{display:flex;justify-content:space-between;align-items:center;background:var(--teal);color:#fff;padding:12px 18px;font-weight:700;font-size:15px}
+  #copyBtn{background:var(--gold);color:#2a230f;border:none;border-radius:30px;padding:8px 18px;font-weight:700;cursor:pointer;font-size:13px}
+  #copyBtn:hover{filter:brightness(1.07)}
+  pre{margin:0;padding:20px;font-size:12.5px;line-height:1.5;white-space:pre-wrap;color:#2b3a39;max-height:330px;overflow:auto;font-family:"SF Mono",Menlo,Consolas,monospace}
+  /* Steps */
+  ol.steps{counter-reset:s;list-style:none;display:grid;gap:12px}
+  ol.steps li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 52px;position:relative;font-size:15px}
+  ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:13px;width:26px;height:26px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  /* CTA */
+  .cta{background:linear-gradient(160deg,var(--teal),var(--teal-deep));color:#fff;text-align:center;border-radius:20px;padding:50px 26px;margin:10px 0}
+  .cta h2{color:#fff;font-size:30px;margin-bottom:12px}
+  .cta p{color:#e8f0f1;max-width:560px;margin:0 auto 26px;font-size:17px}
+  .cta .kingdom{display:inline-block;background:rgba(201,162,75,.18);border:1px solid var(--gold);color:#fff;border-radius:8px;padding:4px 12px;font-weight:700;letter-spacing:1px}
+  footer{text-align:center;padding:40px 0 60px;color:var(--muted);font-size:14px}
+  footer a{margin:0 8px}
+  @media(max-width:680px){
+    header h1{font-size:32px} .grid,.tabs,.ways{grid-template-columns:1fr}
+    .btn-ghost{margin-left:0;margin-top:10px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="badge">A Gift · SoulStrategy</span>
+    <h1>Finally see your business year — clearly.</h1>
+    <p class="lead">Turn a whole year of bank statements into one clean, structured Excel overview. With the AI you already use. In minutes.</p>
+    <a class="btn btn-gold" href="#prompt">Get the free prompt</a>
+    <a class="btn btn-ghost" href="https://github.com/tughelina/bank-statement-analyzer" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Why you'll love this</h2>
+    <p class="sub">Most of us avoid our numbers — not from laziness, but because raw statements are chaos. This turns chaos into clarity.</p>
+    <div class="grid">
+      <div class="card"><span class="emoji">🪞</span><h3>All your money, at last</h3><p>Everything incoming and outgoing — in one place, finally legible.</p></div>
+      <div class="card"><span class="emoji">🧾</span><h3>Not just totals</h3><p>Your creditors and your debtors, your salary, even your investments — each on its own tab.</p></div>
+      <div class="card"><span class="emoji">🤝</span><h3>Your accountant will love this</h3><p>Hand over one clean Excel — and likely shrink your accounting bill.</p></div>
+      <div class="card"><span class="emoji">🧭</span><h3>Clarity that guides decisions</h3><p>See which clients truly fuel you, and where money quietly leaks.</p></div>
+      <div class="card"><span class="emoji">🔒</span><h3>Your data stays yours</h3><p>It runs with your own AI. Nothing uploaded, nothing shared.</p></div>
+      <div class="card"><span class="emoji">💸</span><h3>Free. No catch.</h3><p>No software, no subscription. A genuine gift you can pass on.</p></div>
+    </div>
+    <div class="quote">This isn't bookkeeping. It's sovereignty. Your numbers were always speaking — now you can finally hear them.</div>
+  </div>
+</section>
+
+<section style="background:#f4efe6">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="sub">One Excel workbook with six clear tabs — nothing lost, every transaction reconciled.</p>
+    <div class="tabs">
+      <div class="tab"><div class="num">1</div><div><b>All Transactions</b><br><span>Chronological — income, expense, balance, totalled per currency.</span></div></div>
+      <div class="tab"><div class="num">2</div><div><b>Creditors — Detail</b><br><span>Every supplier payment, by vendor and date.</span></div></div>
+      <div class="tab"><div class="num">3</div><div><b>Creditors — Summary</b><br><span>One line per supplier, with totals.</span></div></div>
+      <div class="tab"><div class="num">4</div><div><b>Debtors</b><br><span>Your real revenue, by client.</span></div></div>
+      <div class="tab"><div class="num">5</div><div><b>Owner Account</b><br><span>Your salary/draws and deposits, with the net.</span></div></div>
+      <div class="tab"><div class="num">6</div><div><b>Internal Transfers</b><br><span>Moves between your own accounts.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="prompt">
+  <div class="wrap">
+    <h2>The free prompt</h2>
+    <p class="sub">Copy it, paste it into Claude or ChatGPT (with Data Analysis), upload your statements, and answer a few questions.</p>
+    <div class="promptwrap">
+      <div class="promptbar"><span>📋 Your prompt</span><button id="copyBtn" onclick="copyPrompt()">Copy</button></div>
+      <pre id="promptText">You are my financial-clarity assistant. I'm giving you my business bank statements for a full year (one or more files — CSV, Excel, or PDF). Turn them into ONE clean, professional Excel workbook (.xlsx) that gives me complete clarity on my money. Work carefully and accurately — never invent numbers.
+
+STEP 1 — Understand my data. Read every file. Identify the columns: transaction date, description, amount (money in / money out), running balance, currency, and which account each row belongs to. Then tell me briefly what you found: the time period, total number of transactions, the accounts, and the currencies. If anything is unclear, ask me before continuing.
+
+STEP 2 — Ask me only the questions you truly need (max 4): Which incoming payments are real revenue from clients vs. money I deposited myself (owner deposits)? Which outgoing payments are my own salary / draws to a private account? Which transfers are just internal moves between my own accounts (currency exchange, savings pockets)? In which language and currency should the final workbook be?
+
+STEP 3 — Build the Excel workbook with these 6 sheets:
+1. All Transactions — every transaction, in date order. Columns: Date, Account, Currency, Type, Description, Income, Expense, Balance, Note. Tint income green, expense red. At the bottom, total Income and Expense per currency. If I have several accounts or currencies, do NOT merge them into one running balance — keep the bank's real balance per row and total per currency.
+2. Creditors — Detail — every payment to a supplier, alphabetically by creditor then by date. Merge obvious variants of the same vendor into one name. Show refunds as negative so totals net. Bundle all bank fees under one creditor "Bank Fees".
+3. Creditors — Summary — one row per creditor: number of charges, total, first and last charge date. Alphabetical, with a grand total.
+4. Debtors — incoming payments that are real revenue (exclude owner deposits and internal moves). Summary by payer plus a detail list. Per-currency totals if multi-currency.
+5. Owner Account — Block A: salary/draws (business to me), Block B: owner deposits (me to business), plus a net figure (draws minus deposits).
+6. Internal Transfers — moves between my own accounts (currency conversions, savings pockets) — no real money in or out.
+
+RULES: Be precise and reconcile — every transaction lands in exactly one category; show me the counts so nothing is lost. If unclear, ask — don't guess. Keep each account's real bank balance per row; never mix currencies into one total. Make it clean: bold headers, frozen header row, filters on, thousands separators with 2 decimals. Produce a downloadable .xlsx file; if you cannot create files, output each sheet as a clean table I can paste into Excel.
+
+When done, give me a short summary: total revenue, total to creditors, total salary/draws, and the reconciliation counts.</pre>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f4efe6">
+  <div class="wrap">
+    <h2>Two ways to use it</h2>
+    <p class="sub">Pick the one that fits you.</p>
+    <div class="ways">
+      <div class="way">
+        <span class="pill">For everyone</span>
+        <h3>The Prompt</h3>
+        <p>Paste it into any capable AI — Claude or ChatGPT (with Data Analysis). No setup, works with any bank.</p>
+        <p><a href="#prompt">↑ Grab the prompt above</a></p>
+      </div>
+      <div class="way alt">
+        <span class="pill">For tech-savvy</span>
+        <h3>The Skill</h3>
+        <p>An installable skill for Claude Code — the AI reads your files itself and builds the Excel directly.</p>
+        <p><a href="https://github.com/tughelina/bank-statement-analyzer/tree/main/skill" target="_blank" rel="noopener">↗ Get the skill on GitHub</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Get started in 4 steps</h2>
+    <p class="sub"></p>
+    <ol class="steps">
+      <li>Open Claude (file/analysis feature) or ChatGPT (Data Analysis / Code Interpreter — in the paid plans).</li>
+      <li>Upload your bank statements for the year — CSV or Excel work best; PDF is fine too.</li>
+      <li>Paste the prompt and answer the few questions it asks you.</li>
+      <li>Download your finished Excel — and finally see your year clearly.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Sense there's a bigger next chapter?</h2>
+      <p>Clarity in your numbers is just the beginning. If you feel the pull toward your next mission but can't yet see the move — let's talk.</p>
+      <a class="btn btn-gold" href="https://bit.ly/My-SoulMission" target="_blank" rel="noopener">Let's talk on WhatsApp</a>
+      <p style="margin-top:20px">Just write <span class="kingdom">KINGDOM</span> in your message.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <a href="https://open.substack.com/pub/deineuniquesoulmission/p/how-to-turn-your-ai-into-your-personalized?r=4t0rtw&utm_campaign=post&utm_medium=web" target="_blank" rel="noopener">Substack</a> ·
+      <a href="https://www.skool.com/soulcalling-portal-1290/about" target="_blank" rel="noopener">Free Community</a> ·
+      <a href="https://github.com/tughelina/bank-statement-analyzer" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p style="margin-top:14px">© 2026 SoulStrategy by Chantal Perrinjaquet — House Of Coaching. Shared as a gift. 🌿</p>
+  </div>
+</footer>
+
+<script>
+function copyPrompt(){
+  var t=document.getElementById('promptText').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var b=document.getElementById('copyBtn'); b.textContent='Copied ✓';
+    setTimeout(function(){b.textContent='Copy';},2000);
+  });
+}
+</script>
+</body>
+</html>
